@@ -1,4 +1,4 @@
-#root {
+#gridSetup {
   display: grid;
   grid-template-columns: 3fr 3fr 3fr 3fr;
   grid-gap: 20px;
@@ -21,3 +21,40 @@ body {
   font-family: 'Trebuchet MS', Helvetica, sans-serif;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+  border-bottom: 1px solid black;
+  position: sticky;
+  top:0;
+  left: 0;
+  background-color: white;
+
+}
+
+.header img {
+  max-height: 100px;
+  flex: 1;
+  margin-left: 0px;
+  margin-right: 50px;
+}
+
+nav {
+  display: flex;
+  flex: 10
+}
+
+#menuList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 100%;
+  justify-content:flex-end;
+  align-items: center;
+}
+
+#menuList li {
+  padding: 0em 3em;
+}

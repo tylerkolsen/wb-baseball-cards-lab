@@ -1,5 +1,6 @@
 import playerData from "./playerData";
 import { useState } from "react";
+import Header from "./Header";
 
 function BaseballCard({name, team, position, stats, imgUrl, cardId}) {
   let [showPicture, setShowPicture] = useState(true)
@@ -35,7 +36,14 @@ function BaseballCard({name, team, position, stats, imgUrl, cardId}) {
 
 function App() {
   const cards = playerData.map((player) => <BaseballCard name={player.name} team={player.team} position={player.position} stats={player.stats} imgUrl={player.imgUrl} cardId={player.cardId}/>)
-  return <>{cards}</>;
+  return (
+    <>
+      <Header />
+      <div id="gridSetup">
+        {cards}
+      </div> 
+    </>
+    );
 }
 
 export default App;
