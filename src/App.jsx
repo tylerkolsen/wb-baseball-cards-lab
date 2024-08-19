@@ -1,30 +1,36 @@
 import playerData from "./playerData";
+import { useState } from "react";
 
 function BaseballCard({name, team, position, stats, imgUrl, cardId}) {
-  let statsDisplay = []
-  for (const [key, value] of Object.entries(stats)) {
-    statsDisplay.push(
-      <p key={key}>
-        {key}: {value}
-      </p>
+  let [showPicture, setShowPicture] = useState(true)
+ 
+  const toggleCard = () => setShowPicture(!showPicture)
+
+  if (showPicture) {
+    return (
+      <div className="card" onClick={toggleCard}>
+        <h2>{name}</h2>
+        <img src={imgUrl} alt={`Picture of ${name}`} />
+      </div>
+    );
+  } else {
+    let statsDisplay = []
+    for (const [key, value] of Object.entries(stats)) {
+      statsDisplay.push(
+        <p key={key}>
+          {key}: {value}
+        </p>
+      )
+    return (
+      <div className="card" onClick={toggleCard}>
+        <h2>{name}</h2>
+        <p>Team: {team}</p>
+        <p>Position: {position}</p>
+        {statsDisplay}
+      </div>
     )
+    }
   }
-
-  return (
-    <div className="card">
-      <h2>{name}</h2>
-      <p>Team: {team}</p>
-      <p>Position: {position}</p>
-      {statsDisplay}
-
-    </div>
-  )
-  // return (
-  //   <div className="card">
-  //     <h2>{name}</h2>
-  //     <img src={imgUrl} alt={`Picture of ${name}`} />
-  //   </div>
-  // );
 }
 
 function App() {
